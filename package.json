@@ -1,0 +1,28 @@
+{
+  "name": "perrache",
+  "version": "0.0.0",
+  "description": "This library is a collection of little tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.27.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainrepo/perrache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brainrepo/perrache/issues"
+  },
+  "homepage": "https://github.com/brainrepo/perrache#readme"
+}
