@@ -1,9 +1,11 @@
 const assert = require("assert");
-const bubbleChild = require("../src/index");
+const { bubbleChild } = require("../src/index");
+
+console.log(bubbleChild);
 
 const data = [
   {
-    data: [{ id: 1, zolla:56 }, { id: 2 }],
+    data: [{ id: 1, zolla: 56 }, { id: 2 }],
     categoria: "nuoro",
     miao: "pippo",
     sss: "www",
@@ -21,7 +23,7 @@ const dataConverted = [
     categoria: "nuoro",
     id: 1,
     sss: "www",
-    zolla:56
+    zolla: 56,
   },
   {
     categoria: "nuoro",
@@ -40,7 +42,6 @@ const dataConverted = [
   },
 ];
 
-
 describe("Objects", function () {
   describe("#bubbleChild", function () {
     it("should emerge by parent props", function () {
@@ -52,6 +53,12 @@ describe("Objects", function () {
     it("it should be called curried", function () {
       assert.deepEqual(
         bubbleChild(["categoria", "sss"])("data")(data),
+        dataConverted
+      );
+    });
+    it("it should be called with all parameters", function () {
+      assert.deepEqual(
+        bubbleChild(["categoria", "sss"], "data", data),
         dataConverted
       );
     });
