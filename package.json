@@ -1,6 +1,6 @@
 {
   "name": "perrache",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This library is a collection of little tools",
   "main": "index.js",
   "scripts": {

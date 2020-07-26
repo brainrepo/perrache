@@ -5,61 +5,46 @@ console.log(bubbleChild);
 
 const data = [
   {
-    data: [{ id: 1, zolla: 56 }, { id: 2 }],
-    categoria: "nuoro",
-    miao: "pippo",
-    sss: "www",
+    station: "Part Dieu",
+    id: 2,
+    shops: [
+      { name: "Paul", id: "s1" },
+      { name: "Brioche Doree", id: "s2" },
+    ],
   },
   {
-    data: [{ id: 3 }, { id: 4 }],
-    categoria: "olbia",
-    miao: "pluto",
-    suca: "dads",
+    station: "Perrache",
+    id: 3,
+    shops: [
+      { name: "Casino", id: "s3" },
+      { name: "Boulanger", id: "s4" },
+    ],
   },
 ];
 
-const dataConverted = [
-  {
-    categoria: "nuoro",
-    id: 1,
-    sss: "www",
-    zolla: 56,
-  },
-  {
-    categoria: "nuoro",
-    id: 2,
-    sss: "www",
-  },
-  {
-    categoria: "olbia",
-    id: 3,
-    sss: null,
-  },
-  {
-    categoria: "olbia",
-    id: 4,
-    sss: null,
-  },
+const dataConverted1 = [
+  { name: "Paul", station_name: "Part Dieu", id: "s1", station_id: "2" },
+  { name: "Brioche Doree", station_name: "Part Dieu", id: "s2", station_id: "2" },
+  { name: "Casino", station_name: "Perrache", id: "s3", station_id: "3" },
+  { name: "Boulanger", station_name: "Perrache", id: "s4", station_id: "3" },
 ];
+
+const conversionSetup1 = { station: "station_name", id: "station_id" }
+
 
 describe("Objects", function () {
   describe("#bubbleChild", function () {
-    it("should emerge by parent props", function () {
+    it("should bubble", function () {
       assert.deepEqual(
-        bubbleChild(["categoria", "sss"], "data")(data),
-        dataConverted
+        bubbleChild(conversionSetup1, "shops", data),
+        dataConverted1
       );
     });
-    it("it should be called curried", function () {
+
+    it("should be curried", function () {
       assert.deepEqual(
-        bubbleChild(["categoria", "sss"])("data")(data),
-        dataConverted
-      );
-    });
-    it("it should be called with all parameters", function () {
-      assert.deepEqual(
-        bubbleChild(["categoria", "sss"], "data", data),
-        dataConverted
+        bubbleChild(conversionSetup1)("shops")(data),
+        dataConverted1
       );
     });
   });
