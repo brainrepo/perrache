@@ -1,8 +1,8 @@
 {
   "name": "perrache",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This library is a collection of little tools",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha"
   },
